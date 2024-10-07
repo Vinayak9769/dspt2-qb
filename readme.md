@@ -55,11 +55,11 @@
 ### Q6. For the following BST, show preorder, inorder and postorder traversal. (any graph can be given)
 ![alt text](image.png)
 **A6:** 
-Inorder:
+#### Inorder:
 15, 20, 25, 30, 31, 32, 35, 48, 50, 65, 66, 67, 69, 70, 90, 94, 98, 99
-Preorder:
+#### Preorder:
 50, 48, 30, 20, 15, 25, 32, 31, 35, 65, 70, 67, 66, 69, 90, 98, 94, 99
-Postorder:
+#### Postorder:
 15, 25, 20, 31, 35, 32, 30, 66, 65, 69, 67, 48, 94, 99, 98, 90, 70, 50
 
 ### Q7. Implement following functions in C for Binary Search Tree
