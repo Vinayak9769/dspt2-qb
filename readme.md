@@ -223,7 +223,151 @@ Binary trees can be classified into several types based on their structure and p
 - **Characteristics**: 
   - Ensures O(log n) time complexity for search, insert, and delete operations.
 
+## Graphs
 
+### 1. Write C Program for DFS AND BFS.
+
+**A1**
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#define MAX 100
+int visited[MAX];
+void DFS(int graph[MAX][MAX], int start, int n) {
+    int stack[MAX];
+    int top = -1; 
+    stack[++top] = start;
+    visited[start] = 1;
+    while (top != -1) {
+        int vertex = stack[top--];
+        printf("%d ", vertex);
+        for (int i = 0; i < n; i++) {
+            if (graph[vertex][i] == 1 && !visited[i]) {
+                stack[++top] = i;
+                visited[i] = 1; 
+            }
+        }
+    }
+}
+void BFS(int graph[MAX][MAX], int start, int n) {
+    int queue[MAX], front = -1, rear = -1;
+    visited[start] = 1;
+    printf("%d ", start);
+    queue[++rear] = start;
+    if (front == -1) front = 0;
+    while (front <= rear) {
+        int current = queue[front++];
+        for (int i = 0; i < n; i++) {
+            if (graph[current][i] == 1 && !visited[i]) {
+                visited[i] = 1;
+                printf("%d ", i);
+                queue[++rear] = i;
+            }
+        }
+    }
+}
+```
+
+### 2. Explain Graph traversal (BFS/DFS)with suitable example.show the stepwise traversal with the help of data structure.
+
+**A2**
+
+### DFS:
+Step 1: Start at node A.
+Stack: [A]
+Visited: [A]
+
+Step 2: Visit a neighbor of A: D.
+Stack: [A, D]
+Visited: [A, D]
+
+Step 3: Visit a neighbor of D: C.
+Stack: [A, D, C]
+Visited: [A, D, C]
+
+Step 4: Visit a neighbor of C: B.
+Stack: [A, D, C, B]
+Visited: [A, D, C, B]
+
+Step 5: Visit a neighbor of B: E (instead of skipping this connection).
+Stack: [A, D, C, B, E]
+Visited: [A, D, C, B, E]
+
+Step 6: Visit a neighbor of E: G.
+Stack: [A, D, C, B, E, G]
+Visited: [A, D, C, B, E, G]
+
+Step 7: Backtrack from G (no unvisited neighbors).
+Stack: [A, D, C, B, E]
+
+Step 8: Backtrack from E, then from B. Visit another neighbor of C: F.
+Stack: [A, D, C, F]
+Visited: [A, D, C, B, E, G, F]
+
+Step 9: No more unvisited neighbors. The traversal is complete.
+
+A -> D -> C -> B -> E -> G -> F
+
+
+### BFS:
+Step 1: Start at node A.
+Queue: [A]
+Visited: [A]
+
+Step 2: Visit all neighbors of A: B, D.
+Queue: [B, D]
+Visited: [A, B, D]
+
+Step 3: Visit all neighbors of B: C, E, G (ignoring A since it's already visited).
+Queue: [D, C, E, G]
+Visited: [A, B, D, C, E, G]
+
+Step 4: Visit neighbors of D: C, F (C is already visited).
+Queue: [C, E, G, F]
+Visited: [A, B, D, C, E, G, F]
+
+Step 5: Visit neighbors of C: F (already visited).
+Queue: [E, G, F]
+Visited: [A, B, D, C, E, G, F]
+
+Step 6: Visit neighbors of E: G (already visited).
+Queue: [G, F]
+Visited: [A, B, D, C, E, G, F]
+
+Step 7: Visit neighbors of G: (none that are unvisited).
+Queue: [F]
+Visited: [A, B, D, C, E, G, F]
+
+Step 8: No more unvisited neighbors.
+
+A -> B -> D -> C -> E -> G -> F
+
+
+### 3.Define a graph. What is Complete and Connected Graph? Explain with Example
+
+**A3**
+
+![Graph 1](graph1.png)
+![Graph 2](graph2.png)
+![Graph 3](graph3.png)
+
+### 4.Define all graph terminologies
+
+**A4**
+
+- **Graph**: A collection of vertices and edges representing relationships between pairs of vertices.
+- **Vertex (Node)**: A fundamental unit or point in a graph.
+- **Edge**: A connection between two vertices in a graph.
+- **Adjacent Vertices (Neighbors)**: Vertices connected by a direct edge.
+- **Degree of a Vertex**: The number of edges connected to a vertex.
+- **Path**: A sequence of vertices connected by edges.
+- **Cycle**: A path that starts and ends at the same vertex without repeating edges or vertices.
+- **Connected Graph**: A graph where there is a path between every pair of vertices.
+- **Complete Graph**: A graph where every pair of distinct vertices is connected by an edge.
+- **Directed Graph (Digraph)**: A graph where edges have directions.
+- **Undirected Graph**: A graph where edges have no directions.
+- **Weighted Graph**: A graph where edges have weights or costs associated with them.
+- **Loop**: An edge that connects a vertex to itself.
 
 
 
