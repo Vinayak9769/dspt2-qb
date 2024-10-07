@@ -124,14 +124,14 @@ struct Node {
     struct Node* left;
     struct Node* right;
 };
-struct Node* findMin(struct Node* root) {
+int findMin(struct Node* root) {
     if (root == NULL) {
         return NULL;
     }    
     while (root->left != NULL) {
         root = root->left;
     }    
-    return root; 
+    return root->val; 
 }
 ```
 
