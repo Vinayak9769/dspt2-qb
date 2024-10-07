@@ -177,7 +177,7 @@ A binary tree is a data structure in which each node has at most two children, r
   
 - **Leaf Node**: A node that does not have any children or has both children as null.
   
-- **Internal Node**: A node that has at least one child. This includes all nodes except the root and the leaf nodes.
+- **Internal Node**: A node that has at least one child. This includes all nodes except the leaf nodes.
   
 - **Depth of a Node**: The number of edges from a specific node to the root node. The depth of the root node is zero.
   
