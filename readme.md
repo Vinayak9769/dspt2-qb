@@ -347,9 +347,9 @@ A -> B -> D -> C -> E -> G -> F
 
 **A3**
 
-![Graph 1](graph1.png)
-![Graph 2](graph2.png)
-![Graph 3](graph3.png)
+![img](graph1.png)
+![img](graph2.png)
+![img](graph3.png)
 
 ### 4.Define all graph terminologies
 
